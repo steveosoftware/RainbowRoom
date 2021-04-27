@@ -27,8 +27,10 @@ class Palette extends Component {
       <ColorBox
         background={color[format]}
         name={color.name}
-        key={color.id}
+        // changed key to color.name instead id to avoid duplicates
+        key={color.name}
         colorUrl={`/palette/${id}/${color.id}`}
+        showLink={true}
       />
     ))
     return (
