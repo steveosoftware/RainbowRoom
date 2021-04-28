@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 export default [
   {
     paletteName: "Material UI Colors",
