@@ -44,7 +44,7 @@ class SingleColorPalette extends PureComponent {
         <div className="Palette-colors">
           {colorBoxes}
           <div className="go-back ColorBox">
-            <Link to={`/palette/${id}`} className="back-button">Go Back</Link>
+            <Link to={`/palette/${id}`} className="back-button">GO BACK</Link>
           </div>
         </div>
         <PaletteFooter paletteName={paletteName} emoji={emoji} />

@@ -29,7 +29,7 @@ class Palette extends Component {
         background={color[format]}
         name={color.name}
         // changed key to color.name instead id to avoid duplicates
-        key={color.name}
+        key={color.id}
         colorUrl={`/palette/${id}/${color.id}`}
         showLink={true}
       />
