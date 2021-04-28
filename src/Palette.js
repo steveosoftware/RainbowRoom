@@ -31,7 +31,7 @@ class Palette extends Component {
         // changed key to color.name instead id to avoid duplicates
         key={color.id}
         colorUrl={`/palette/${id}/${color.id}`}
-        showLink={true}
+        showingFullPalette={true}
       />
     ))
     return (
