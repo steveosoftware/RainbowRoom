@@ -80,7 +80,7 @@ export default function NewPaletteForm(props) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [currentColor, setCurrentColor] = useState("");
-  const [colors, setColors] = useState([]);
+  const [colors, setColors] = useState(props.palettes[0].colors);
   const [name, setName] = useState({
     colorName: "",
     paletteName: "",
@@ -142,6 +142,20 @@ export default function NewPaletteForm(props) {
     setColors(arrayMove(colors, oldIndex, newIndex));
   };
 
+  const clearColors = () => {
+    setColors([]);
+  };
+
+  const randomColor = () => {
+    const allColors = props.palettes.map((p) => p.colors).flat();
+    let random = Math.floor(Math.random() * allColors.length);
+    const randomColor = allColors[random];
+    setColors([...colors, randomColor]);
+  };
+
+  const { maxColors } = props;
+  const paletteIsFull = colors.length >= maxColors;
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -197,11 +211,16 @@ export default function NewPaletteForm(props) {
         <Divider />
         <Typography variant="h4">Design Your Palette</Typography>
         <div>
-          <Button variant="contained" color="secondary">
+          <Button variant="contained" color="secondary" onClick={clearColors}>
             Clear Palette
           </Button>
-          <Button variant="contained" color="primary">
-            Random Color
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={randomColor}
+            disabled={paletteIsFull}
+          >
+            {paletteIsFull ? "Palette Full" : "Random Color"}
           </Button>
         </div>
 
@@ -226,8 +245,9 @@ export default function NewPaletteForm(props) {
             color="primary"
             style={{ backgroundColor: currentColor }}
             type="submit"
+            disabled={paletteIsFull}
           >
-            Add Color
+            {paletteIsFull ? "Palette Full" : "Add Color"}
           </Button>
         </ValidatorForm>
       </Drawer>
@@ -248,3 +268,7 @@ export default function NewPaletteForm(props) {
     </div>
   );
 }
+
+NewPaletteForm.defaultProps = {
+  maxColors: 20,
+};
