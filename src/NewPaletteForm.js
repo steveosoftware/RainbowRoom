@@ -121,13 +121,17 @@ export default function NewPaletteForm(props) {
     setName({ ...name, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (paletteName) => {
-    let newName = name.paletteName;
-    const newPalette = {
-      paletteName: paletteName,
-      id: newName.toLowerCase().replace(/ /g, "-"),
-      colors: colors,
-    };
+  const handleSubmit = (newPalette) => {
+    newPalette.paletteName = name.paletteName;
+    newPalette.id = name.paletteName.toLowerCase().replace(/ /g, "-");
+    newPalette.colors = colors;
+    // };
+    // let newName = name.paletteName;
+    // newPalette = {
+    //   paletteName: newName,
+    //   id: newName.toLowerCase().replace(/ /g, "-"),
+    //   colors: colors,
+    // };
     props.savePalette(newPalette);
     props.history.push("/");
   };
