@@ -1,27 +1,43 @@
 import chroma from "chroma-js";
+import sizes from "./sizes";
 // eslint-disable-next-line
 export default {
   ColorBox: {
     width: "20%",
-    height: props => props.showingFullPalette ? "25%" : "50%",
+    height: (props) => (props.showingFullPalette ? "25%" : "50%"),
     margin: "0 auto",
     display: "inline-block",
     position: "relative",
     cursor: "pointer",
     marginBottom: "-3.5px",
-    "&:hover button":{
+    "&:hover button": {
       opacity: 1,
-      transition: "all .5s"
-    }
+      transition: "all .5s",
+    },
+    [sizes.down("lg")]: {
+      width: "25%",
+      height: (props) => (props.showingFullPalette ? "20%" : "50%"),
+    },
+    [sizes.down("md")]: {
+      width: "50%",
+      height: (props) => (props.showingFullPalette ? "10%" : "50%"),
+    },
+    [sizes.down("xs")]: {
+      width: "100%",
+      height: (props) => (props.showingFullPalette ? "5%" : "10%"),
+    },
   },
   copyText: {
-    color: props => chroma(props.background).luminance() >= 0.5 ? "rgba(0,0,0,.5)":"white",
+    color: (props) =>
+      chroma(props.background).luminance() >= 0.5 ? "rgba(0,0,0,.5)" : "white",
   },
   colorName: {
-    color: props => chroma(props.background).luminance() <= 0.08 ? "white": "rgba(0,0,0,.5)",
+    color: (props) =>
+      chroma(props.background).luminance() <= 0.08 ? "white" : "rgba(0,0,0,.5)",
   },
   seeMore: {
-    color: props => chroma(props.background).luminance() >= 0.5 ? "rgba(0,0,0,.5)":"white",
+    color: (props) =>
+      chroma(props.background).luminance() >= 0.5 ? "rgba(0,0,0,.5)" : "white",
     background: "rgba(255,255,255, .3)",
     border: "none",
     position: "absolute",
@@ -34,7 +50,8 @@ export default {
     textTransform: "uppercase",
   },
   copyButton: {
-    color: props => chroma(props.background).luminance() >= 0.5 ? "rgba(0,0,0,.5)":"white",
+    color: (props) =>
+      chroma(props.background).luminance() >= 0.5 ? "rgba(0,0,0,.5)" : "white",
     width: "100px",
     height: "30px",
     position: "absolute",
@@ -53,7 +70,7 @@ export default {
     textDecoration: "none",
     opacity: "0",
   },
-   boxContent: {
+  boxContent: {
     position: "absolute",
     width: "100%",
     left: "0px",
@@ -93,19 +110,19 @@ export default {
     opacity: "0",
     color: "white",
     "& h1": {
-        fontWeight: "400",
-        textShadow: "1px 2px black",
-        background: "rgba(255,255,255,.2)",
-        width: "100%",
-        textAlign: "center",
-        marginBottom: "0",
-        padding: "1rem",
-        textTransform: "uppercase",
+      fontWeight: "400",
+      textShadow: "1px 2px black",
+      background: "rgba(255,255,255,.2)",
+      width: "100%",
+      textAlign: "center",
+      marginBottom: "0",
+      padding: "1rem",
+      textTransform: "uppercase",
     },
-    "& p":{
-        fontSize: "2rem",
-        fontWeight: "100"
-    }
+    "& p": {
+      fontSize: "2rem",
+      fontWeight: "100",
+    },
   },
   showMsg: {
     opacity: "1",
@@ -114,5 +131,4 @@ export default {
     transition: "all .4s ease-in-out",
     transitionDelay: ".3s",
   },
-
-}
+};
