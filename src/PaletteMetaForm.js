@@ -9,8 +9,6 @@ import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import { Picker } from "emoji-mart";
 import "emoji-mart/css/emoji-mart.css";
 
-// name.paletteName;
-
 function PaletteMetaForm(props) {
   const [stage, setStage] = React.useState("form");
 
