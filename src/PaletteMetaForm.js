@@ -24,6 +24,7 @@ function PaletteMetaForm(props) {
       emoji: emoji.native,
     };
     handleSubmit(newPalette);
+    setStage("");
   };
 
   const { name, handleChange, handleSubmit, hideForm } = props;
@@ -47,6 +48,7 @@ function PaletteMetaForm(props) {
               unique!
             </DialogContentText>
             <TextValidator
+              autoFocus
               name="paletteName"
               value={name.paletteName}
               label="Palette Name"
