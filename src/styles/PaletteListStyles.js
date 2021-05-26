@@ -1,13 +1,16 @@
 import sizes from "./sizes";
-
+import bg from "./bg.svg";
 // eslint-disable-next-line
 export default {
   root: {
-    backgroundColor: "blue",
     height: "100vh",
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "center",
+    /* background by SVGBackgrounds.com */
+    backgroundColor: "#90A0B3",
+    backgroundImage: `url(${bg})`,
+    overflow: "scroll",
   },
   container: {
     width: "50%",
@@ -23,6 +26,12 @@ export default {
     },
     [sizes.down("xs")]: {
       width: "70%",
+    },
+  },
+  heading: {
+    fontSize: "2rem",
+    [sizes.down("xs")]: {
+      fontSize: "1.2rem",
     },
   },
   nav: {
@@ -48,7 +57,7 @@ export default {
     },
     [sizes.down("xs")]: {
       gridTemplateColumns: "repeat(1, 100%)",
-      girdGap: "1rem",
+      girdGap: "1.4rem",
     },
   },
 };
