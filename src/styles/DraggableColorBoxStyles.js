@@ -1,4 +1,5 @@
 import sizes from "./sizes";
+import chroma from "chroma-js";
 
 const styles = {
   root: {
@@ -32,7 +33,9 @@ const styles = {
     left: "0px",
     bottom: "0px",
     padding: "10px",
-    color: "rgba(0,0,0, .5)",
+    color: (props) =>
+      chroma(props.color).luminance() <= 0.08 ? "white" : "rgba(0,0,0,.5)",
+    // color: "rgba(0,0,0,.5)",
     letterSpacing: "1px",
     textTansform: "uppercase",
     fontSize: "12px",
@@ -41,6 +44,7 @@ const styles = {
   },
   deleteIcon: {
     transition: "all .2s",
+    marginRight: "15px",
   },
 };
 

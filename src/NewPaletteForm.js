@@ -12,12 +12,13 @@ import PaletteFormNav from "./PaletteFormNav";
 import ColorPickerForm from "./ColorPickerForm";
 import { arrayMove } from "react-sortable-hoc";
 import { ValidatorForm } from "react-material-ui-form-validator";
+import seedColors from "./seedColors";
 
 export default function NewPaletteForm(props) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [currentColor, setCurrentColor] = useState("");
-  const [colors, setColors] = useState(props.palettes[0].colors);
+  const [colors, setColors] = useState(seedColors[0].colors);
   const [name, setName] = useState({
     colorName: "",
     paletteName: "",
