@@ -3,7 +3,6 @@ import useStyles from "./styles/PaletteFormNavStyles";
 import PaletteMetaForm from "./PaletteMetaForm";
 import { Link } from "react-router-dom";
 import clsx from "clsx";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -26,7 +25,7 @@ function PaletteFormNav(props) {
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
+      {/* <CssBaseline /> */}
       <AppBar
         color="default"
         position="fixed"
