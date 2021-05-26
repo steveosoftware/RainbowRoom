@@ -1,3 +1,5 @@
+import sizes from "./sizes";
+
 // eslint-disable-next-line
 export default {
   Navbar: {
@@ -16,11 +18,14 @@ export default {
     height: "100%",
     display: "flex",
     alignItems: "center",
-    "& a":{
+    "& a": {
       textDecoration: "none",
       color: "black",
       fontFamily: "Roboto",
-    }
+    },
+    [sizes.down("xs")]: {
+      display: "none",
+    },
   },
 
   slider: {
@@ -30,26 +35,30 @@ export default {
     "& .rc-slider-rail": {
       heigth: "8px",
     },
-    "& .rc-slider-handle, .rc-slider-handle:active, .rc-slider-handle:focus, .rc-slider-handle:hover": {
-      backgroundColor: "green",
-      outline: "none",
-      border: "2px solid green",
-      boxShadow: "none",
-      width: "14px",
-      height: "14px",
-      marginLeft: "7px",
-    },
     "& .rc-slider-track": {
       backgroundColor: "transparent",
-    }
+    },
+    "& .rc-slider-handle, .rc-slider-handle:active, .rc-slider-handle:focus, .rc-slider-handle:hover":
+      {
+        backgroundColor: "green",
+        outline: "none",
+        border: "2px solid green",
+        boxShadow: "none",
+        width: "14px",
+        height: "14px",
+        marginLeft: "7px",
+      },
+    [sizes.down("md")]: {
+      width: "150px",
+    },
   },
-  sliderContainer:{
+  sliderContainer: {
     display: "flex",
     alignItems: "center",
   },
   selectContainer: {
     display: "flex",
     marginLeft: "auto",
-    marginRight: "1rem"
-  }
-}
+    marginRight: "1rem",
+  },
+};
